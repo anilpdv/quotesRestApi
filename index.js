@@ -13,7 +13,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // : parse application/json
 app.use(bodyParser.json());
-
+// : first route
+app.use('/', function(req, res) {
+  res.send('its works!');
+});
 // : routes
 app.use('/quotes', tagRoutes);
 app.use('/quotes/search', searchRoutes);
