@@ -33,6 +33,6 @@ app.use(function(err, req, res, next) {
   res.json({err: {message: err.message}});
 });
 let port = process.env.PORT || 3000;
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('app is start listening');
 });
