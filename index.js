@@ -13,13 +13,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 // : parse application/json
 app.use(bodyParser.json());
+// : routes
+app.use('/quotes', tagRoutes);
+app.use('/quotes/search', searchRoutes);
 // : first route
 app.use('/', function(req, res) {
   res.send('its works!');
 });
-// : routes
-app.use('/quotes', tagRoutes);
-app.use('/quotes/search', searchRoutes);
+
 // : middle not found
 app.use(function(req, res, next) {
   let err = new Error('route not found');
