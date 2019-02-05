@@ -13,7 +13,7 @@ const transformImage = el => {
       .replace(': url(', '')
       .replace(');', '');
   } else {
-    return 'https://images.gr-assets.com/quotes/1485615280p8/9884.jpg';
+    return 'https://images.gr-assets.com/quotes/1387503187p2/10554.jpg';
   }
 };
 // @route : '/'

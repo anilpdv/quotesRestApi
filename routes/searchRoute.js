@@ -2,6 +2,7 @@ const router = require('express').Router();
 const axios = require('axios');
 const cheerio = require('cheerio');
 router.get('/:query', (req, res, next) => {
+  console.log(req.params.query);
   let quotes = [];
   axios
     .get('https://www.goodreads.com/quotes/search', {
