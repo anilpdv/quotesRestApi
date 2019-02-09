@@ -20,7 +20,7 @@ const transformImage = el => {
 // @desc  : returns json of popular quotes
 // @access: public
 router.get('/', (req, res) => {
-  let quotes = [];
+  let quotesJson = {quotes: []};
   // : req to goodreads website
   axios
     .get('https://www.goodreads.com/quotes', {
@@ -41,11 +41,13 @@ router.get('/', (req, res) => {
             .text()
             .trim(),
         };
+
         // : push every quote
-        quotes.push(data);
+        quotesJson.quotes.push(data);
       });
+
       // : send json of data
-      res.json(quotes);
+      res.json(quotesJson);
     })
     .catch(err => {
       console.log(err);
@@ -55,7 +57,7 @@ router.get('/', (req, res) => {
 // @desc  : returns json of popular quotes
 // @access: public
 router.get('/page/:pageId', (req, res) => {
-  let quotes = [];
+  let quotesJson = {quotes: []};
   // : req to goodreads website
   console.log(req.params);
   console.log(req.query);
@@ -79,11 +81,11 @@ router.get('/page/:pageId', (req, res) => {
             .trim(),
         };
         // : push every quote
-        quotes.push(data);
+        quotesJson.quotes.push(data);
       });
       //    ;
       // : send json of data
-      res.json(quotes);
+      res.json(quotesJson);
     })
     .catch(err => {
       console.log(err);
@@ -93,7 +95,7 @@ router.get('/page/:pageId', (req, res) => {
 // @desc  : returns json of popular quotes
 // @access: public
 router.get('/tag/:category', (req, res) => {
-  let quotes = [];
+  let quotesJson = {quotes: []};
   // : req to goodreads website
   axios
     .get(`https://www.goodreads.com/quotes/tag/${req.params.category}`, {
@@ -104,9 +106,7 @@ router.get('/tag/:category', (req, res) => {
       const $ = cheerio.load(resp.data.content_html);
       $('.quoteContainer').each((i, el) => {
         data = {
-          img: $(el)
-            .find('.userIcon')
-            .attr('style'),
+          img: transformImage(el),
           author: $(el)
             .find('.quoteAuthor')
             .text()
@@ -117,10 +117,10 @@ router.get('/tag/:category', (req, res) => {
             .trim(),
         };
         // : push every quote
-        quotes.push(data);
+        quotesJson.quotes.push(data);
       });
       // : send json of data
-      res.json(quotes);
+      res.json(quotesJson);
     })
     .catch(err => {
       console.log(err);
@@ -130,7 +130,7 @@ router.get('/tag/:category', (req, res) => {
 // @desc  : returns json of popular quotes
 // @access: public
 router.get('/tag/:category/page/:pageId', (req, res) => {
-  let quotes = [];
+  let quotesJson = {quotes: []};
   // : req to goodreads website
   axios
     .get(`https://www.goodreads.com/quotes/tag/${req.params.category}`, {
@@ -141,9 +141,7 @@ router.get('/tag/:category/page/:pageId', (req, res) => {
       const $ = cheerio.load(resp.data.content_html);
       $('.quoteContainer').each((i, el) => {
         data = {
-          img: $(el)
-            .find('.userIcon')
-            .attr('style'),
+          img: transformImage(el),
           author: $(el)
             .find('.quoteAuthor')
             .text()
@@ -154,10 +152,10 @@ router.get('/tag/:category/page/:pageId', (req, res) => {
             .trim(),
         };
         // : push every quote
-        quotes.push(data);
+        quotesJson.quotes.push(data);
       });
       // : send json of data
-      res.json(quotes);
+      res.json(quotesJson);
     })
     .catch(err => {
       console.log(err);

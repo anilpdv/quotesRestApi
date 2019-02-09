@@ -3,7 +3,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 router.get('/:query', (req, res, next) => {
   console.log(req.params.query);
-  let quotes = [];
+  let quotesJson = {quotes: []};
   axios
     .get('https://www.goodreads.com/quotes/search', {
       params: {q: req.params.query},
@@ -26,15 +26,15 @@ router.get('/:query', (req, res, next) => {
             .trim(),
         };
 
-        quotes.push(data);
+        quotesJson.quotes.push(data);
       });
 
-      if (quotes.length < 1) {
+      if (quotesJson.quotes.length < 1) {
         let err = new Error('Search query Not found');
         err.status = 404;
         next(err);
       } else {
-        res.json(quotes);
+        res.json(quotesJson);
       }
     })
     .catch(error => {
@@ -44,7 +44,7 @@ router.get('/:query', (req, res, next) => {
     });
 });
 router.get('/:query/page/:id', (req, res, next) => {
-  let quotes = [];
+  let quotesJson = {quotes: []};
   axios
     .get('https://www.goodreads.com/quotes/search', {
       params: {q: req.params.query, page: req.params.id},
@@ -66,15 +66,15 @@ router.get('/:query/page/:id', (req, res, next) => {
             .text()
             .trim(),
         };
-        quotes.push(data);
+        quotesJson.quotes.push(data);
       });
 
-      if (quotes.length < 1) {
+      if (quotesJson.quotes.length < 1) {
         let err = new Error('Search query Not found');
         err.status = 404;
         next(err);
       } else {
-        res.json(quotes);
+        res.json(quotesJson);
       }
     })
     .catch(error => {
