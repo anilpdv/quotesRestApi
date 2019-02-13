@@ -181,13 +181,17 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 $(document).ready(function() {
-  $('.row').on('mouseover', '#quote_data', function(e) {
-    let min = 0;
-    let max = randomQuotes.quotes.length;
-    let r = getRandomInt(0, max);
-    let quote = randomQuotes.quotes[r];
-    setTimeout(() => {
-      $('#quote_data').html(`<h1 >${quote.quote}</h1>`);
-    }, 6000);
+  $('.home').on('mouseover', () => {
+    $('.home').attr('class', 'btn-home');
+  });
+  $('.home').on('mouseleave', () => {
+    $('.btn-home').attr('class', 'home');
+  });
+
+  $('.dev').on('mouseover', () => {
+    $('.dev').attr('class', 'btn-home');
+  });
+  $('.dev').on('mouseleave', () => {
+    $('.btn-home').attr('class', 'dev');
   });
 });

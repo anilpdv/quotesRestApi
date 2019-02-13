@@ -1,0 +1,53 @@
+/*light grey :#f1f1ee light black : #4a4a4a
+*/
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: ;
+  color: ;
+}
+h1 {
+  font-family: Montserrat;
+}
+
+/*------------- nav ------------*/
+nav {
+  background: #f8fafc;
+  padding: 10px;
+  text-align: center;
+}
+
+nav i {
+  margin: auto;
+  font-family: Montserrat;
+  color: black;
+  padding: 10px;
+}
+nav a {
+  color: black;
+}
+
+/* ------------- header -----------*/
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  font-family: Montserrat;
+}
+.subtitle {
+  margin-top: 40px;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.title {
+  padding-top: 100px;
+}
+
+header {
+  height: 100vh;
+}
