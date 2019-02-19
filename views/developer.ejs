@@ -43,8 +43,94 @@
           want. Quotes of different types and including search.
         </h3>
       </div>
+      <div class="browser">
+        <div class="buttons">
+          <span class="button-red"></span>
+          <span class="button-green"></span>
+          <span class="button-yellow"></span>
+          <div class="address"></div>
+        </div>
+        <div class="code">
+          <h5>quotesapi.cf<span>/</span>quotes</h5>
+
+          <pre>
+          <code>
+    {
+    <div class="quote-block">
+     <span class="img"> "img"</span>:<span class="quote-image"> "https://images.gr-assets.com/quotes/1387506524p2/2534.jpg"</span>,
+      <span class="author">"author"</span>: <span class="quote-author">"Stephen Chbosky"</span>,
+      <span class="quote">"quote"</span>:<span class="quote-txt"> "We accept the love we think we deserve."</span>
+    </div>
+    },
+     
+     {
+     <div class="quote-block">
+     <span class="img"> "img"</span>:<span class="quote-image"> "https://images.gr-assets.com/quotes/1387503187p2/10554.jpg"</span>,
+      <span class="author">"author"</span>:<span class="quote-author"> "Marthe Troly-Curtin</span>",
+      <span class="quote">"quote"</span>:<span class="quote-txt"> "Time you enjoy wasting is not wasted time."</span>
+    </div>
+    },
+    
+    {
+    <div class="quote-block">
+      <span class="img">"img"</span>:<span class="quote-image"> "https://images.gr-assets.com/quotes/1387503187p2/10554.jpg"</span>,
+      <span class="author">"author"</span>:<span class="quote-author"> "Gordon A. Eadie"</span>,
+      <span class="quote">"quote"</span>:<span class="quote-txt"> "If you don't stand for something you will fall for anything."</span>
+    </div>
+    } 
+          </code>
+          </pre>
+        </div>
+      </div>
+      <!-- section route one doc -->
+      <section class="container">
+        <div class="section-heading">
+          <h1>Resources & Https methods</h1>
+        </div>
+        <div class="content">
+          <h3>
+            quotes api has three resources, each resource provides x number of
+            quotes.
+          </h3>
+        </div>
+        <div class="first-resource">
+          <h4>
+            <i class="fas fa-quote-left"></i><italic> /quotes</italic
+            ><i class="fas fa-quote-right"></i>
+          </h4>
+        </div>
+        <div class="implementation">
+          <pre>
+       <code>
+               fetch('http://example.com/movies.json')
+                    .then(function(response) {
+                         return response.json();
+                    })
+                    .then(function(myJson) {
+                        console.log(JSON.stringify(myJson));
+                    })
+                    .catch(function(err){
+                        console.log(err)
+                    })
+             </code>
+       </pre>
+        </div>
+
+        <div class="get-quotes">
+          <a href="http://rest.quotesapi.cf/quotes">GET </a>
+          <span>http://www.quotesapi.cf/quotes</span>
+        </div>
+        <div class="get-quotes">
+          <a href="http://rest.quotesapi.cf/quotes">GET </a>
+          <span>http://www.quotesapi.cf/quotes</span>
+        </div>
+        <div class="get-quotes">
+          <a href="http://rest.quotesapi.cf/quotes">GET </a>
+          <span>http://www.quotesapi.cf/quotes</span>
+        </div>
+      </section>
     </header>
-    <section></section>
+
     <footer></footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 

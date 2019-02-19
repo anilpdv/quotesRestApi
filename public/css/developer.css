@@ -9,7 +9,9 @@ body {
   background: ;
   color: ;
 }
-h1 {
+h1,
+h4,
+h5 {
   font-family: Montserrat;
 }
 
@@ -35,7 +37,9 @@ h1 {
   text-align: center;
 }
 
-h3 {
+h3,
+h5,
+h4 {
   text-align: center;
   font-family: Montserrat;
 }
@@ -50,4 +54,122 @@ h3 {
 
 header {
   height: 100vh;
+}
+/*------------------ browser ----------*/
+/*----------------code -----------*/
+.buttons {
+  padding: 10px;
+}
+.button-red {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: red;
+  border-radius: 100%;
+}
+.button-green {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: yellow;
+  border-radius: 100%;
+}
+.button-yellow {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background: green;
+  border-radius: 100%;
+}
+
+.browser {
+  margin-top: 40px;
+  width: 700px;
+  margin-left: 340px;
+  margin-right: 300px;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+}
+.code {
+  width: 30%;
+}
+.code h5 {
+  background: lightblue;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: Lato;
+}
+.code h5 span {
+  padding: 2px;
+}
+
+/* quote - block */
+.quote-block span {
+  padding: 10px;
+  font-family: Lato;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.quote-block .img {
+  color: #003366;
+}
+.quote-block .quote-image {
+  color: #eb2188;
+}
+
+.quote-block .author {
+  color: #003366;
+}
+.quote-block .quote-author {
+  color: #eb2188;
+}
+.quote-block .quote {
+  color: #003366;
+}
+.quote-block .quote-txt {
+  color: #eb2188;
+}
+/* section routes docs */
+.container {
+  margin-top: 40px;
+  width: 700px;
+  margin-left: 340px;
+  margin-right: 300px;
+}
+
+.container .section-heading {
+  padding: 20px;
+}
+.container .content {
+  padding: 10px;
+}
+.container .first-resource {
+  padding: 10px;
+  color: #003366;
+}
+.container .first-resource i {
+  padding: 10px;
+  color: #003366;
+}
+.get-quotes a {
+  padding: 13px;
+  margin-left: 0;
+  background: black;
+  color: white;
+  border-radius: 40px;
+}
+
+.get-quotes {
+  margin: 0;
+  background: #d4d4dc;
+  border-radius: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+}
+
+.get-quotes span {
+  margin-left: 20px;
+  font-family: Lato;
+  font-size: 20px;
 }
