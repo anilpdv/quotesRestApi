@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cheerio = require('cheerio');
 const axios = require('axios');
 const path = require('path');
+const cors = require('cors');
 // : app instance of express
 const app = express();
 const homeRoutes = require('./routes/homeRoute');
@@ -18,6 +19,9 @@ app.use(bodyParser.json());
 
 // : use puclic folder as static server
 app.use(express.static(path.join(__dirname, 'public')));
+
+// : Allow cross origin
+app.use(cors());
 
 // : setting the app view engine to 'ejs'
 app.set('view engine', 'ejs');
