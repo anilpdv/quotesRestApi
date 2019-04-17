@@ -1,8 +1,6 @@
 // : importing required modules
 const express = require('express');
 const bodyParser = require('body-parser');
-const cheerio = require('cheerio');
-const axios = require('axios');
 const path = require('path');
 const cors = require('cors');
 // : app instance of express
@@ -43,6 +41,7 @@ app.use(function(req, res, next) {
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.json({err: {message: err.message}});
+  next();
 });
 
 let port = process.env.PORT || 5000;
