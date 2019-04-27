@@ -94,10 +94,14 @@
           </h3>
         </div>
         <div class="first-resource">
-          <h4>
+          <h2 class="head-quotes">
             <i class="fas fa-quote-left"></i><italic> /quotes</italic
             ><i class="fas fa-quote-right"></i>
-          </h4>
+          </h2>
+          <h3>
+            route '/quotes' gives popular quotes from the goodreads collection.
+            you can give 'page' has parameter.
+          </h3>
         </div>
         <div class="implementation-quotes">
           <div class="buttons">
@@ -109,7 +113,7 @@
 
           <pre>
        <code>
-      <span class="method">fetch</span>(<span class="string">'http://example.com/movies.json'</span>)
+      <span class="method">fetch</span>(<span class="string">'http://rest.quotesapi.cf/quotes?page=1'</span>)
             .<span class="method">then</span>(<span class="func">function</span>(response) {
                  <span class="return">return</span> response.json();
             })
@@ -125,8 +129,21 @@
 
         <div class="get-quotes">
           <a href="http://rest.quotesapi.cf/quotes">GET </a>
-          <span>http://www.quotesapi.cf/quotes</span>
+          <span>http://www.quotesapi.cf/quotes?page=1</span>
         </div>
+
+        <div class="first-resource">
+          <h2 class="head-quotes">
+            <i class="fas fa-quote-left"></i><italic> /search</italic
+            ><i class="fas fa-quote-right"></i>
+          </h2>
+          <h3>
+            route '/search' gives quotes by search keywork which is 'q'
+            parameter , returns results based on search parameter of books and
+            author.
+          </h3>
+        </div>
+
         <div class="implementation-quotes">
           <div class="buttons">
             <span class="button-red"></span>
@@ -137,7 +154,7 @@
 
           <pre>
        <code>
-      <span class="method">fetch</span>(<span class="string">'http://example.com/movies.json'</span>)
+      <span class="method">fetch</span>(<span class="string">'http://rest.quotesapi.cf/search?q=walden&page=1'</span>)
             .<span class="method">then</span>(<span class="func">function</span>(response) {
                  <span class="return">return</span> response.json();
             })
@@ -151,9 +168,21 @@
        </pre>
         </div>
         <div class="get-quotes">
-          <a href="http://rest.quotesapi.cf/quotes">GET </a>
-          <span>http://www.quotesapi.cf/quotes</span>
+          <a href="http://rest.quotesapi.cf/search?q=walden&page=1">GET </a>
+          <span>http://www.quotesapi.cf/search?q=walden&page=1</span>
         </div>
+
+        <div class="first-resource">
+          <h2 class="head-quotes">
+            <i class="fas fa-quote-left"></i><italic> /tag/:category</italic
+            ><i class="fas fa-quote-right"></i>
+          </h2>
+          <h3>
+            route "/tag/:category" gives quotes based upon category. for
+            category check goodreads, it also takes page as parameter.
+          </h3>
+        </div>
+
         <div class="implementation-quotes">
           <div class="buttons">
             <span class="button-red"></span>
@@ -164,7 +193,7 @@
 
           <pre>
        <code>
-      <span class="method">fetch</span>(<span class="string">'http://example.com/movies.json'</span>)
+      <span class="method">fetch</span>(<span class="string">'http://rest.quotesapi.cf/tag/wisdom?page=1'</span>)
             .<span class="method">then</span>(<span class="func">function</span>(response) {
                  <span class="return">return</span> response.json();
             })
@@ -178,8 +207,8 @@
        </pre>
         </div>
         <div class="get-quotes">
-          <a href="http://rest.quotesapi.cf/quotes">GET </a>
-          <span>http://www.quotesapi.cf/quotes</span>
+          <a href="http://rest.quotesapi.cf/tag/wisdom?page=1">GET </a>
+          <span>http://www.quotesapi.cf/tag/wisdom?page=1</span>
         </div>
       </section>
     </header>

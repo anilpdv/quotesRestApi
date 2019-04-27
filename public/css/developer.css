@@ -24,6 +24,7 @@ nav i {
   color: black;
   padding: 10px;
 }
+
 nav a {
   color: black;
 }
@@ -39,11 +40,13 @@ h4 {
   text-align: center;
   font-family: Montserrat;
 }
+
 .subtitle {
   margin-top: 40px;
   margin-left: 25%;
   margin-right: 25%;
 }
+
 .title {
   padding-top: 100px;
 }
@@ -51,11 +54,13 @@ h4 {
 header {
   height: 100vh;
 }
+
 /*------------------ browser ----------*/
 /*----------------code -----------*/
 .buttons {
   padding: 10px;
 }
+
 .button-red {
   display: inline-block;
   width: 10px;
@@ -63,6 +68,7 @@ header {
   background: red;
   border-radius: 100%;
 }
+
 .button-green {
   width: 10px;
   height: 10px;
@@ -70,6 +76,7 @@ header {
   background: yellow;
   border-radius: 100%;
 }
+
 .button-yellow {
   width: 10px;
   height: 10px;
@@ -80,20 +87,24 @@ header {
 
 .browser {
   margin-top: 40px;
-  width: 700px;
+  width: 800px;
   margin-left: 340px;
   margin-right: 300px;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
 }
+
 .code {
   width: 30%;
 }
+
 .code h5 {
   background: lightblue;
   padding: 10px;
   font-size: 1rem;
   font-family: Lato;
 }
+
 .code h5 span {
   padding: 2px;
 }
@@ -109,6 +120,7 @@ header {
 .quote-block .img {
   color: #003366;
 }
+
 .quote-block .quote-image {
   color: #eb2188;
 }
@@ -116,15 +128,19 @@ header {
 .quote-block .author {
   color: #003366;
 }
+
 .quote-block .quote-author {
   color: #eb2188;
 }
+
 .quote-block .quote {
   color: #003366;
 }
+
 .quote-block .quote-txt {
   color: #eb2188;
 }
+
 /* section routes docs */
 .container {
   margin-top: 40px;
@@ -136,17 +152,25 @@ header {
 .container .section-heading {
   padding: 20px;
 }
+
 .container .content {
   padding: 10px;
 }
+
 .container .first-resource {
   padding: 10px;
   color: #003366;
+  margin-top: 80px;
+  line-height: 2.3rem;
+  word-spacing: 2px;
 }
+
 .container .first-resource i {
   padding: 10px;
   color: #003366;
+
 }
+
 .get-quotes a {
   padding: 13px;
   margin-left: 0;
@@ -162,27 +186,35 @@ header {
   padding-top: 10px;
   padding-bottom: 10px;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  width: 800px;
 }
 
 .get-quotes span {
+
   margin-left: 20px;
-  font-family: Lato;
+  font-family: lato, 'Fira Code';
   font-size: 20px;
+
 }
 
 /* ---------- javascript code ---------- */
 .implementation-quotes {
   font-size: 20px;
+  border-radius: 10px
 }
+
 .implementaion-quotes span {
   padding: 10px;
 }
+
 .implementation-quotes {
   margin-top: 40px;
-  width: 700px;
+  width: 800px;
   margin-right: 300px;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  line-height: 2.3rem;
 }
+
 .method {
   color: red;
 }
@@ -197,4 +229,10 @@ header {
 
 .return {
   color: #4dd0e1;
+}
+
+.head-quotes {
+  text-align: center;
+  text-emphasis: emphasis inherit;
+  color: #eb2188;
 }
