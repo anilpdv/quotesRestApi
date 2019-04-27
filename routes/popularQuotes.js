@@ -5,19 +5,20 @@ const {
   transformImage
 } = require('../utils/transformUlr');
 
-// @route : /tag/:category
+// @route : '/'
 // @desc  : returns json of popular quotes
 // @access: public
-router.get('/:category', (req, res, next) => {
+router.get('/', (req, res, next) => {
   if (!req.query.page) {
     req.query.page = 1;
   }
+
   let quotesJson = {
     quotes: []
   };
   // : req to goodreads website
   axios
-    .get(`https://www.goodreads.com/quotes/tag/${req.params.category}`, {
+    .get('https://www.goodreads.com/quotes', {
       params: {
         format: 'json',
         page: req.query.page
@@ -37,18 +38,18 @@ router.get('/:category', (req, res, next) => {
             .find('.quoteBody')
             .text()
             .trim(),
-
         };
+
         // : push every quote
         quotesJson.quotes.push(data);
       });
-
       quotesJson.req_info = {
         page: resp.data.page,
         per_page: resp.data.per_page,
         num_results: resp.data.num_results,
         total_page: resp.data.total_pages
       }
+
       if (quotesJson.quotes.length < 1) {
         let err = new Error(
           'Search query Not found or page limit exceeded! please try again.',
@@ -58,21 +59,23 @@ router.get('/:category', (req, res, next) => {
       } else {
         res.json(quotesJson);
       }
+
     })
     .catch(err => {
       console.log(err);
     });
 });
 
-// @route : /tag/:category/page/:page
+// @route : /:page
 // @desc  : returns json of popular quotes
 // @access: public
-router.get('/:category/page/:pageId', (req, res, next) => {
+router.get('/page/:pageId', (req, res, next) => {
   let quotesJson = {
     quotes: []
   };
   // : req to goodreads website
-  axios.get(`https://www.goodreads.com/quotes/tag/${req.params.category}`, {
+  axios
+    .get('https://www.goodreads.com/quotes', {
       params: {
         format: 'json',
         page: req.params.pageId
@@ -96,6 +99,7 @@ router.get('/:category/page/:pageId', (req, res, next) => {
         // : push every quote
         quotesJson.quotes.push(data);
       });
+      //  : adding req_info information
       quotesJson.req_info = {
         page: resp.data.page,
         per_page: resp.data.per_page,
@@ -112,10 +116,11 @@ router.get('/:category/page/:pageId', (req, res, next) => {
       } else {
         res.json(quotesJson);
       }
-
+      //    ;
     })
     .catch(err => {
       console.log(err);
     });
 });
+
 module.exports = router;

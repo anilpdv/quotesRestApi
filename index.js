@@ -6,8 +6,9 @@ const cors = require('cors');
 // : app instance of express
 const app = express();
 const homeRoutes = require('./routes/homeRoute');
-const tagRoutes = require('./routes/quotesTag');
+const popularQuotes = require('./routes/popularQuotes');
 const searchRoutes = require('./routes/searchRoute');
+const tagRoutes = require('./routes/quotesTag');
 
 // : parse application / x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}));
@@ -27,8 +28,9 @@ app.set('views', __dirname + '/views');
 
 // : routes
 app.use('/', homeRoutes);
-app.use('/quotes', tagRoutes);
-app.use('/quotes/search', searchRoutes);
+app.use('/tag', tagRoutes);
+app.use('/quotes', popularQuotes);
+app.use('/search', searchRoutes);
 
 // : middle not found
 app.use(function(req, res, next) {

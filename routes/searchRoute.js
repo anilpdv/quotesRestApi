@@ -1,12 +1,20 @@
 const router = require('express').Router();
 const axios = require('axios');
 const cheerio = require('cheerio');
-router.get('/:query', (req, res, next) => {
-  console.log(req.params.query);
-  let quotesJson = {quotes: []};
+
+router.get('/', (req, res, next) => {
+  if (!req.query.page) {
+    req.query.page = 1;
+  }
+  let quotesJson = {
+    quotes: []
+  };
   axios
     .get('https://www.goodreads.com/quotes/search', {
-      params: {q: req.params.query},
+      params: {
+        q: req.query.q,
+        page: req.query.page
+      },
     })
     .then(resp => {
       const $ = cheerio.load(resp.data);
@@ -30,7 +38,9 @@ router.get('/:query', (req, res, next) => {
       });
 
       if (quotesJson.quotes.length < 1) {
-        let err = new Error('Search query Not found');
+        let err = new Error(
+          'Search query Not found or page limit exceeded ! please try again.',
+        );
         err.status = 404;
         next(err);
       } else {
@@ -38,16 +48,23 @@ router.get('/:query', (req, res, next) => {
       }
     })
     .catch(error => {
+      console.log(error);
       let err = new Error(error);
       err.status = 404;
       next(err);
     });
 });
+
 router.get('/:query/page/:id', (req, res, next) => {
-  let quotesJson = {quotes: []};
+  let quotesJson = {
+    quotes: []
+  };
   axios
     .get('https://www.goodreads.com/quotes/search', {
-      params: {q: req.params.query, page: req.params.id},
+      params: {
+        q: req.params.query,
+        page: req.params.id
+      },
     })
     .then(resp => {
       const $ = cheerio.load(resp.data);
