@@ -87,7 +87,7 @@ header {
 
 .browser {
   margin-top: 40px;
-  width: 800px;
+  width: 700px;
   margin-left: 340px;
   margin-right: 300px;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
@@ -186,7 +186,7 @@ header {
   padding-top: 10px;
   padding-bottom: 10px;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
-  width: 800px;
+  width: 700px;
 }
 
 .get-quotes span {
@@ -209,7 +209,7 @@ header {
 
 .implementation-quotes {
   margin-top: 40px;
-  width: 800px;
+  width: 700px;
   margin-right: 300px;
   box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
   line-height: 2.3rem;
