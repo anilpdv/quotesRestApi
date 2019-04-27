@@ -62,7 +62,9 @@ router.get('/', (req, res, next) => {
 
     })
     .catch(err => {
-      console.log(err);
+      let error = new Error(err);
+      error.status = 404;
+      next(error)
     });
 });
 
@@ -119,7 +121,9 @@ router.get('/page/:pageId', (req, res, next) => {
       //    ;
     })
     .catch(err => {
-      console.log(err);
+      let error = new Error(err);
+      err.status = 404;
+      next(err);
     });
 });
 

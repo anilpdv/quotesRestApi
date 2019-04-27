@@ -50,7 +50,7 @@ router.get('/:category', (req, res, next) => {
         total_page: resp.data.total_pages
       }
       if (quotesJson.quotes.length < 1) {
-        let err = new Error(
+        var err = new Error(
           'Search query Not found or page limit exceeded! please try again.',
         );
         err.status = 404;
@@ -60,7 +60,9 @@ router.get('/:category', (req, res, next) => {
       }
     })
     .catch(err => {
-      console.log(err);
+      var err = new Error(err);
+      err.status = 404;
+      next(err)
     });
 });
 
@@ -115,7 +117,9 @@ router.get('/:category/page/:pageId', (req, res, next) => {
 
     })
     .catch(err => {
-      console.log(err);
+      let error = new Error(err)
+      error.status = 404;
+      next(error);
     });
 });
 module.exports = router;
