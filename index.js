@@ -3,12 +3,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
+const morgan = require('morgan');
+
 // : app instance of express
 const app = express();
 const homeRoutes = require('./routes/homeRoute');
 const popularQuotes = require('./routes/popularQuotes');
 const searchRoutes = require('./routes/searchRoute');
 const tagRoutes = require('./routes/quotesTag');
+
+// : morgan
+app.use(morgan('combined'));
 
 // : parse application / x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}));
