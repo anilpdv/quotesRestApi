@@ -48,7 +48,19 @@ h4 {
 }
 
 .title {
+  color: #636b6f;
   padding-top: 100px;
+  text-decoration: underline;
+}
+.subtitle {
+  color: #636b6f;
+}
+.section-heading {
+  color: #636b6f;
+  text-decoration: underline;
+}
+.content h3 {
+  color: #636b6f;
 }
 
 header {
@@ -168,20 +180,21 @@ header {
 .container .first-resource i {
   padding: 10px;
   color: #003366;
-
 }
 
 .get-quotes a {
-  padding: 13px;
+  padding: 14px;
   margin-left: 0;
-  background: black;
-  color: white;
-  border-radius: 40px;
+  margin-top: 0;
+  background: #32dbc6;
+  color: #085f63;
+  border-radius: 20px;
+  text-decoration: none;
 }
 
 .get-quotes {
   margin: 0;
-  background: #d4d4dc;
+  background: white;
   border-radius: 30px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -190,17 +203,16 @@ header {
 }
 
 .get-quotes span {
-
   margin-left: 20px;
   font-family: lato, 'Fira Code';
   font-size: 20px;
-
+  line-spacing: 1rem;
 }
 
 /* ---------- javascript code ---------- */
 .implementation-quotes {
   font-size: 20px;
-  border-radius: 10px
+  border-radius: 10px;
 }
 
 .implementaion-quotes span {
