@@ -11,6 +11,7 @@ const homeRoutes = require('./routes/homeRoute');
 const popularQuotes = require('./routes/popularQuotes');
 const searchRoutes = require('./routes/searchRoute');
 const tagRoutes = require('./routes/quotesTag');
+const randomRoutes = require('./routes/randomQuoteGenerator');
 
 // : morgan
 app.use(morgan('combined'));
@@ -36,6 +37,7 @@ app.use('/', homeRoutes);
 app.use('/tag', tagRoutes);
 app.use('/quotes', popularQuotes);
 app.use('/search', searchRoutes);
+app.use('/random', randomRoutes);
 
 // : middle not found
 app.use(function(req, res, next) {
