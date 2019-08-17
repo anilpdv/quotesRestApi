@@ -18,11 +18,13 @@ let options2 = {
 };
 
 // : random number generator
-let random_page_number_param = '?page=' + rn(options1);
-let random_quote_number = rn(options2);
-
 // : quote generator
 router.get('/', (req, res, next) => {
+  let random_page_number_param = '?page=' + rn(options1);
+  let random_quote_number = rn(options2);
+  console.log(random_page_number_param);
+  console.log(random_quote_number);
+
   axios
     .get(url + random_page_number_param)
     .then(response => {
