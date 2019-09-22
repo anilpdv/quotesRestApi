@@ -3,7 +3,7 @@ const rn = require('random-number');
 const express = require('express');
 const router = express.Router();
 
-const url = 'http://quotesapi.ml/quotes';
+const url = 'http://www.quotesapi.ml/quotes';
 
 let options1 = {
   min: 0,
