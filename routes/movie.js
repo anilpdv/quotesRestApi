@@ -6,7 +6,7 @@ const {key, secret_key} = require('./.config.js');
 
 router.get('/:id', async (req, res) => {
   try {
-    const url = await get_movie(req.params.id);
+    const url = await get_movie(req.params.id, req.ip);
     res.json({url: url});
   } catch (err) {
     console.log(err);
@@ -14,8 +14,8 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-const get_movie = async videoId => {
-  const ipaddress = await publicIp.v4();
+const get_movie = async (videoId, ip) => {
+  const ipaddress = ip; //await publicIp.v4();
   console.log(`ipaddress : ${ipaddress}`);
 
   const ticketUrl = `https://videospider.in/getticket.php?key=${key}&secret_key=${secret_key}&video_id=${videoId}&ip=${ipaddress}`;
