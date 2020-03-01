@@ -6,7 +6,11 @@ const {key, secret_key} = require('./.config.js');
 
 router.get('/:id', async (req, res) => {
   try {
-    const url = await get_movie(req.params.id, req.ip);
+    const forwarded = req.headers['x-forwarded-for'];
+    const ip = forwarded
+      ? forwarded.split(/, /)[0]
+      : req.connection.remoteAddress;
+    const url = await get_movie(req.params.id, ip);
     res.json({url: url});
   } catch (err) {
     console.log(err);
