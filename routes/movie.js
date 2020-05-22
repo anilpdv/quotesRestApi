@@ -11,15 +11,11 @@ router.get("/:id", async (req, res) => {
     let ip = forwarded
       ? forwarded.split(/, /)[0]
       : req.connection.remoteAddress;
-    getIP(async (err, ipaddress) => {
-      if (err) {
-        // every service in the list has failed
-        throw err;
-      }
-
-      const url = await get_movie(req.params.id, ipaddress);
-      res.json({ url: url });
-    });
+    let ips = req.ips;
+    let reqip = req.ip;
+    console.log(req.ips);
+    const url = await get_movie(req.params.id, ip);
+    res.json({ url: url, ips, reqip, ip });
   } catch (err) {
     console.log(err);
     res.status(400);
