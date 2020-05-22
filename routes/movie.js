@@ -3,17 +3,24 @@ const router = express.Router();
 const axios = require("axios");
 const publicIp = require("public-ip");
 const { key, secret_key } = require("./.config.js");
+const getIP = require("external-ip")();
 
 router.get("/:id", async (req, res) => {
   try {
     const forwarded = req.headers["x-forwarded-for"];
-    const ip = forwarded
+    let ip = forwarded
       ? forwarded.split(/, /)[0]
       : req.connection.remoteAddress;
     const publicip = await publicIp.v6();
+    getIP(async (err, ipaddress) => {
+      if (err) {
+        // every service in the list has failed
+        throw err;
+      }
 
-    // const url = await get_movie(req.params.id, publicip);
-    res.json({ url: publicip });
+      const url = await get_movie(req.params.id, ipaddress);
+      res.json({ url: url });
+    });
   } catch (err) {
     console.log(err);
     res.status(400);
