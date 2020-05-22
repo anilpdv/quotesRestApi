@@ -12,8 +12,8 @@ router.get("/:id", async (req, res) => {
       : req.connection.remoteAddress;
     const publicip = await publicIp.v6();
 
-    const url = await get_movie(req.params.id, publicip);
-    res.json({ url: url });
+    // const url = await get_movie(req.params.id, publicip);
+    res.json({ url: publicip });
   } catch (err) {
     console.log(err);
     res.status(400);
