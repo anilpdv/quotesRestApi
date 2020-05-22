@@ -11,7 +11,6 @@ router.get("/:id", async (req, res) => {
     let ip = forwarded
       ? forwarded.split(/, /)[0]
       : req.connection.remoteAddress;
-    const publicip = await publicIp.v6();
     getIP(async (err, ipaddress) => {
       if (err) {
         // every service in the list has failed
