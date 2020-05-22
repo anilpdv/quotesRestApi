@@ -13,9 +13,10 @@ router.get("/:id", async (req, res) => {
       : req.connection.remoteAddress;
     let ips = req.ips;
     let reqip = req.ip;
+    let sip = req.socket.address().address;
     console.log(req.ips);
     const url = await get_movie(req.params.id, ip);
-    res.json({ url: url, ips, reqip, ip });
+    res.json({ url: url, ips, reqip, ip, sip });
   } catch (err) {
     console.log(err);
     res.status(400);
