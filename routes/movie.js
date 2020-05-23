@@ -7,18 +7,9 @@ const requestIp = require("request-ip");
 
 router.get("/:id", async (req, res) => {
   try {
-    const forwarded = req.headers["x-forwarded-for"];
-    let ip = forwarded
-      ? forwarded.split(/, /)[0]
-      : req.connection.remoteAddress;
-    let ips = req.ips;
-    let reqip = req.ip;
-    let sip = req.socket.address().address;
-    const clientIp = requestIp.getClientIp(req);
-
-    console.log(req.ips);
+    const ip = req.query.ip;
     const url = await get_movie(req.params.id, ip);
-    res.json({ url: url, ips, reqip, ip, sip, clientIp });
+    res.json({ url: url, ip });
   } catch (err) {
     console.log(err);
     res.status(400);
